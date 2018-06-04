@@ -1,0 +1,110 @@
+.center-500 {
+	/*margin-top: 10%;*/
+	position: relative;
+	width: 50%;
+	max-width: 1500px;
+	min-width: 500px;
+	margin:5% auto;
+}
+.y-master-card {
+	cursor: pointer;
+}
+.mb{
+	margin-bottom: 10px;
+
+}
+.y-content-block {
+	border-radius: 6px;
+	outline: 0;
+}
+.y-block-shadow {
+	border:1px solid rgba(0,0,0,0.12);
+}
+.y-master-card_item_disabled {
+	margin: 4% 5%;
+}
+.y-master-card_row {
+	width: 100%;
+	display: table-row;
+}
+.y-master-card_cell {
+	display: table-cell;
+}
+.y-master-card_logo {
+	/*min-width: 100px;*/
+	/*width: 100px;*/
+}
+.y-master-info-avatar {
+	/*width: 80px;
+	height: 80px;*/
+}
+.y-master-info-avatar img {
+	border: 3px solid #eee;
+	border-radius: 50%;
+	width: 135px;
+	height: 160px;
+	/*cursor: pointer;*/
+}
+.y-master-card_cell_middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+.y-master-card_master-namespec {
+	/*min-width: 85px;*/
+	/*padding-right: 30px;*/
+	margin-top: 7%;
+}
+.y-master-card_master-namespec h3 {
+	font-size: 24px;
+	line-height: 24px;
+	margin:0 0 10px;
+	padding: 0;
+}
+.y-master-card_master-namespec h4 {
+	position: relative;
+	font-size: 16px;
+	margin-top:10%;
+	padding:0 30px 0 0;
+	line-height: 11%;
+	color: #666;
+}
+.y-master-card_rating {
+	font-size: 14px;
+}
+.star-container .star-gold {
+	color: gold;
+}
+.y-reviews-button {
+	font-size: 14px;
+	line-height: 15px;
+	outline: 0;
+}
+.y-reviews-button a {
+	border-bottom: 1px solid;
+	color: #302f2f!important;
+}
+.y-maser-card_footer {
+	padding: 16px;
+	border-top: 1px solid rgba(0,0,0,0.12)
+}
+.y-master-card_session {
+	font-size: 16px;
+	margin-bottom: 7px;
+	color: #302f2f;
+}
+.master-time-slot-wrapper {
+	padding: 0;
+	margin: 6px;
+	opacity: 0.7;
+	font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+
+}
+
+
+
+
+
+
+
