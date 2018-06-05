@@ -12,7 +12,7 @@ exports = module.exports = function (req, res) {
     id: req.params.id,
   };
   locals.data = {
-    users: [],
+    user: {},
   };
 
   // Load the current category filter
@@ -24,8 +24,8 @@ exports = module.exports = function (req, res) {
     //   next(err);
     // });
     if (req.params.id) {
-      keystone.list('PostCategory').model.findOne({ key: locals.filters.id }).exec(function (err, result) {
-        locals.data.category = result;
+      keystone.list('User').model.findOne({ _id: locals.filters.id }).exec(function (err, result) {       
+        locals.data.user = result;
         next(err);
       });
     } else {

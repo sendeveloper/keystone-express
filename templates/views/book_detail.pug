@@ -24,27 +24,7 @@ block content
           //- li: a(href="/book") book online
   .container
     .center-500.y-masters-list.y-masters-lis_mt
-      if data.users
-        each user, index in data.users
-          .y-content-block.y-block-shadow.mb
-            .y-master-card_item_disabled.row
-              .y-master-card_row
-                .y-master-card_cell.y-master-card_logo.col-md-6
-                  .y-master-info-avatar
-                    a(href="/book/" + user._id)
-                      img(src=user.images[0].limit(300,300))
-                .y-master-card_cell_middle.y-master-card_master-namespec.col-md-6
-                  h3=user.name.first +" "+ user.name.last
-                  h4=user.service
-              .y-master-card_row_additional_info.y-master-card_row
-                .y-master-card_cell.col-md-6
-                  .y-master-card_rating.star-container
-                    span.fa.fa-star.star-gold
-                .y-master-card_cell.y-master-card_cell_relative.col-md-6
-                  .y-reviews-button
-                    a.ng-binding 76 reviews
-            .y-maser-card_footer
-              .y-master-card_session
-                h4 upcoming appointment 3 June
-              .master-time-slot-wrapper
-                a.warn-color-dark.master-time-slot 11:00\
+      if data.user
+        h1 = data.user.name.first + " " + data.user.name.last
+      else
+        h1 Empty data
