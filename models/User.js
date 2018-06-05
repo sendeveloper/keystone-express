@@ -13,7 +13,7 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
 	images: { type: Types.CloudinaryImages },
 	brief: { type: Types.Textarea,  height: 150 },
-	service: { type: Types.Relationship, ref: 'Post', refPath: 'title' },
+	service: { type: Types.Relationship, ref: 'Post', refPath: 'title', many: true },
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 

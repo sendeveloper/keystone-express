@@ -12,7 +12,7 @@ var keystone = require('keystone');
 keystone.init({
 	'name': 'BrightEyes',
 	'brand': 'Bright Eyes',
-
+  'auto update': true,
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
