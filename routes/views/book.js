@@ -25,25 +25,23 @@ module.exports = function (req, res) {
 
 		q.exec(function (err, results) {
 			locals.data.users = results;
-			
-			// console.log('==== Booking: users: ', locals.data.users);
 
-			// async.each(locals.data.users, function (user, next) {
-
-			// 	locals.data.users.forEach(function(user, index) {
-			// 		// keystone.list('Post').model.find().where('author', user.service).exec(function(err, services) { 
-			// 		// 	locals.data.users[index].service = services[0];
-			// 		// 		next(err);
-					
-			// 	 //  	console.log('--- Booking: users[' + index +'].service: ', locals.data.users[index].service);			  	
-						
-			// 		// });
-
-			// 	}, function (err) {
-			// 		next(err);
-			// 	});
-			// });
-			next(err);
+      async.each(locals.data.users, function (user, next) {
+        var index = locals.data.users.indexOf(user);
+        var ids = user.service;
+        keystone.list('Post').model.find({_id: {$in: ids}}).exec(function(err1, result1) {
+          locals.data.users[index]['services'] = result1;
+          locals.data.users[index]['service_titles'] = '';
+          result1.forEach(function(each, index2) {
+            locals.data.users[index]['service_titles'] += each['title'] + "/";
+          })
+          if (locals.data.users[index]['service_titles'].length > 0)
+            locals.data.users[index]['service_titles'] = locals.data.users[index]['service_titles'].slice(0,-1);
+          next(err);
+        });
+      }, function (err) {
+        next(err);
+      });
 		});
 	});
 

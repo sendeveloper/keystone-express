@@ -21,14 +21,18 @@
 	border:1px solid rgba(0,0,0,0.12);
 }
 .y-master-card_item_disabled {
-	margin: 4% 5%;
+	margin: 2% 2%;
 }
 .y-master-card_row {
 	width: 100%;
-	display: table-row;
+	display: block;
+}
+.y-master-card_row_additional_info{
+  margin-top: 10px;
 }
 .y-master-card_cell {
-	display: table-cell;
+	display: inline-block;
+  margin-right: 20px;
 }
 .y-master-card_logo {
 	/*min-width: 100px;*/
@@ -46,13 +50,11 @@
 	cursor: pointer;
 }
 .y-master-card_cell_middle {
-	display: table-cell;
+	display: inline-block;
 	vertical-align: middle;
 }
 .y-master-card_master-namespec {
-	/*min-width: 85px;*/
-	/*padding-right: 30px;*/
-	margin-top: 7%;
+
 }
 .y-master-card_master-namespec h3 {
 	font-size: 24px;
@@ -70,6 +72,8 @@
 }
 .y-master-card_rating {
 	font-size: 14px;
+  width: 135px;
+  text-align: center;
 }
 .star-container .star-gold {
 	color: gold;
@@ -101,6 +105,9 @@
   font-size: 18px;
 
 }
+.book-detail{
+  margin-top: 100px;
+}
 .book-detail .form-group{
   margin-bottom: 15px;
 }
@@ -117,5 +124,8 @@
 .employee-photo img{
   width: 100%;
 }
-
+#jssor_container{
+  width: 100vw;
+  overflow: hidden;
+}
 

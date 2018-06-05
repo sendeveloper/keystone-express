@@ -28,18 +28,22 @@ block content
 				.y-content-block.y-block-shadow.mb
 					.y-master-card_item_disabled.row
 						.y-master-card_row
-							.y-master-card_cell.y-master-card_logo.col-md-6
+							.y-master-card_cell.y-master-card_logo
 								.y-master-info-avatar
 									a(href="/book/" + user._id)
 										img(src=user.images[0].limit(300,300))
-							.y-master-card_cell_middle.y-master-card_master-namespec.col-md-6
+							.y-master-card_cell_middle.y-master-card_master-namespec
 								h3=user.name.first +" "+ user.name.last
-								h4=user.service
+								h4=user.service_titles
 						.y-master-card_row_additional_info.y-master-card_row
-							.y-master-card_cell.col-md-6
+							.y-master-card_cell
 								.y-master-card_rating.star-container
 									span.fa.fa-star.star-gold
-							.y-master-card_cell.y-master-card_cell_relative.col-md-6
+									span.fa.fa-star.star-gold
+									span.fa.fa-star.star-gold
+									span.fa.fa-star.star-gold
+									span.fa.fa-star.star-gold
+							.y-master-card_cell.y-master-card_cell_relative
 								.y-reviews-button
 									a.ng-binding 76 reviews
 					.y-maser-card_footer

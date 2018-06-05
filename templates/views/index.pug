@@ -45,11 +45,12 @@ block content
 											td.item-title: h5=service.price
 
 		.container-flow
-			#jssor_1(style="position:relative;top:0px;left:0px;width:2000px;height:200px;overflow:hidden;")
-				div(data-u="slides" style="position:absolute;top:0px;left:0px;width:2000px;height:200px;overflow:hidden;")
-					each image in data.galleries[1].images
-						div
-							img(u="image" src=image.limit(1150,550))
+			#jssor_container
+				#jssor_1(style="position:relative;top:0px;left:0px;width:2000px;height:200px;overflow:hidden;")
+					div(data-u="slides" style="position:absolute;top:0px;left:0px;width:2000px;height:200px;overflow:hidden;")
+						each image in data.galleries[1].images
+							div
+								img(u="image" src=image.limit(1150,550))
 			.modal.fade#enlargeImageModal(tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true")
 				.modal-dialog.modal-lg(role="document")
 					.modal-content
@@ -74,23 +75,23 @@ block content
 							if( index == 0 )
 								.item.row.active
 									if user.images[0]
-										.col-sm-4.user-img: img(src=user.images[0].limit(300,300))
+										.col-xs-4.user-img: img(src=user.images[0].limit(300,300))
 									else
-										.col-sm-4.user-img: img(src='../images/missing.png')
+										.col-xs-4.user-img: img(src='../images/missing.png')
 									//- .col-md-8: h6=user
-									.col-sm-8
-										.item-catption.pull-right
+									.col-xs-8
+										.item-catption
 											.masters-top: h4=user.name.first
 											.scroll-wrapper.master-text.scrollbar-inner: p=user.brief
 							else
 								.item.row
 									if user.images[0]
-										.col-sm-4.user-img: img(src=user.images[0].limit(300,300))
+										.col-xs-4.user-img: img(src=user.images[0].limit(300,300))
 									else
-										.col-sm-4.user-img: img(src='../images/missing.png'  style="top:-50;")
+										.col-xs-4.user-img: img(src='../images/missing.png'  style="top:-50;")
 									//- .col-md-8: h6=user
-									.col-sm-8
-										.item-catption.pull-right
+									.col-xs-8
+										.item-catption
 											.masters-top: h4=user.name.first
 											.scroll-wrapper.master-text.scrollbar-inner: p=user.brief
 					a.left.carousel-control(href="#myCarousel" data-slide="prev")
