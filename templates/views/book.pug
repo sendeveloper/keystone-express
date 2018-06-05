@@ -30,7 +30,8 @@ block content
 						.y-master-card_row
 							.y-master-card_cell.y-master-card_logo.col-md-6
 								.y-master-info-avatar
-									img(src=user.images[0].limit(300,300))
+									a(href="/book/" + user._id)
+										img(src=user.images[0].limit(300,300))
 							.y-master-card_cell_middle.y-master-card_master-namespec.col-md-6
 								h3=user.name.first +" "+ user.name.last
 								h4=user.service
@@ -46,5 +47,3 @@ block content
 							h4 upcoming appointment 3 June
 						.master-time-slot-wrapper
 							a.warn-color-dark.master-time-slot 11:00
-
-
