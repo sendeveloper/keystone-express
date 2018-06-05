@@ -110,8 +110,8 @@
   clear: both;
 }
 .employee-photo{
-  max-width: 200px;
-   margin: 0 auto;
+  max-width: 150px;
+  margin: 0 auto;
   float: none;
 }
 .employee-photo img{

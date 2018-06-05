@@ -37,17 +37,18 @@ block content
           div.form-group
             label.control-label.col-sm-4 Name:
             div.col-sm-8
-              label=data.user.name.first + ' ' + data.user.name.last
+              if (data.user.name)
+                label=data.user.name.first + ' ' + data.user.name.last
           div.form-group
             label.control-label.col-sm-4(for='service') Service: 
             div.col-sm-8
-              select#service.form-control
+              select#service.form-control(multiple='multiple')
+                each service_item in data.service
+                  option(value=service_item.title)=service_item.title
           div.form-group
             label.control-label.col-sm-4(for='date') Time:
-            div.col-sm-4
-              select#date.form-control.date
-            div.col-sm-4
-              select.form-control.time
+            div.col-sm-8
+              input#datetime.form-control(type='text' placeholder='Enter your time')
           div.form-group
             h3="Customer Info"
           div.form-group

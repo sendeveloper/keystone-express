@@ -1,6 +1,3 @@
 $(document).ready(function() {
-  console.log('book.js');
-  function showBookDetail(user) {
-    console.log(user);
-  }
+  $('#datetime').datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 })
