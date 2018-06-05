@@ -101,10 +101,21 @@
   font-size: 18px;
 
 }
-
-
-
-
-
+.book-detail .form-group{
+  margin-bottom: 15px;
+}
+.book-detail .form-group:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.employee-photo{
+  max-width: 200px;
+   margin: 0 auto;
+  float: none;
+}
+.employee-photo img{
+  width: 100%;
+}
 
 

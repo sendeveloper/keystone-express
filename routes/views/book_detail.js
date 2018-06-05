@@ -13,19 +13,16 @@ exports = module.exports = function (req, res) {
   };
   locals.data = {
     user: {},
+    photo: ''
   };
 
   // Load the current category filter
   view.on('init', function (next) {
-    // var q = keystone.list('User').model.find().where('isAdmin', false).sort('sortOrder');
-
-    // q.exec(function (err, results) {
-    //   locals.data.users = results;
-    //   next(err);
-    // });
     if (req.params.id) {
       keystone.list('User').model.findOne({ _id: locals.filters.id }).exec(function (err, result) {       
         locals.data.user = result;
+        if (result.images && result.images.length > 0)
+          locals.data.photo = result.images[0]['url'];
         next(err);
       });
     } else {
