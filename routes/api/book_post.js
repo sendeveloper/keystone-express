@@ -14,15 +14,17 @@ module.exports = function (req, res) {
       price = result.price;
     });
   }
-  if (req.body.email){
-    keystone.list('Book').model.findOne({ customerEmail: req.body.email }).exec(function(err, result){
+  if (req.body.email && req.body.datetime){
+    // {$or: [{'email': email}, {'username': email}]}
+    // keystone.list('Book').model.findOne({ customerEmail: req.body.email }).exec(function(err, result){
+    keystone.list('Book').model.findOne({bookingTime: req.body.datetime}).exec(function(err, result){
       if (result == null)
       {
         var newBook = new Book.model({
           name: req.body.user_name,
           userId: req.body.user_id,
           serviceId: req.body.empservice ? req.body.empservice : '',
-          bookingTime: req.body.datetime ? req.body.datetime : '',
+          bookingTime: req.body.datetime,
           state: 'open',
           price: price,
           location: '',
@@ -30,7 +32,7 @@ module.exports = function (req, res) {
           reviewContent: '',
           customerName: req.body.customername ? req.body.customername : '',
           customerPhonenumber: req.body.number ? req.body.number : '',
-          customerEmail: req.body.email ? req.body.email : '',
+          customerEmail: req.body.email,
           customerDescription: req.body.description ? req.body.description : '',
           customerReminder: req.body.reminder ? req.body.reminder : '',
           termAgree: req.body.agree
@@ -45,7 +47,7 @@ module.exports = function (req, res) {
       }
       else
       {
-        res.json({"Error": 'Email is already existed'});
+        res.json({"Error": 'Date time is already set'});
       }
     })
   }
