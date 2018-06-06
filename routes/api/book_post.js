@@ -38,7 +38,6 @@ module.exports = function (req, res) {
           termAgree: req.body.agree
         });
         newBook.save(function(err) {
-          // post has been saved
           if (err)
             res.json({"Error": 'Error to save the data'});
           else
