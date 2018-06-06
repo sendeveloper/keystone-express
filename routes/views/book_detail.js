@@ -14,7 +14,8 @@ exports = module.exports = function (req, res) {
   locals.data = {
     user: {},
     photo: '',
-    service: []
+    service: [],
+    reminder: []
   };
 
   // Load the current category filter
@@ -27,9 +28,12 @@ exports = module.exports = function (req, res) {
           locals.data.photo = result.images[0]['url'];
         if (ids && ids.length > 0)
         {
-          keystone.list('Post').model.find({_id: {$in: ids}}).exec(function(err, result1) {
+          keystone.list('Post').model.find({_id: {$in: ids}}).exec(function(err1, result1) {
             locals.data.service = result1;
-            next(err);
+            keystone.list('Reminder').model.find().exec(function(err2, result2) {
+              locals.data.reminder = result2;
+              next(err2);
+            })
           });
         }
       });

@@ -38,11 +38,11 @@ block content
 							p=category.name
 							table
 								tbody
-
-									each service in category.services
-										tr
-											td.item-title: h5=service.title
-											td.item-title: h5=service.price
+									if (category.services)
+										each service in category.services
+											tr
+												td.item-title: h5=service.title
+												td.item-title: h5=service.price
 
 		.container-flow
 			#jssor_container

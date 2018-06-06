@@ -29,16 +29,31 @@ module.exports = function (req, res) {
       async.each(locals.data.users, function (user, next) {
         var index = locals.data.users.indexOf(user);
         var ids = user.service;
-        keystone.list('Post').model.find({_id: {$in: ids}}).exec(function(err1, result1) {
-          locals.data.users[index]['services'] = result1;
-          locals.data.users[index]['service_titles'] = '';
-          result1.forEach(function(each, index2) {
-            locals.data.users[index]['service_titles'] += each['title'] + "/";
-          })
-          if (locals.data.users[index]['service_titles'].length > 0)
-            locals.data.users[index]['service_titles'] = locals.data.users[index]['service_titles'].slice(0,-1);
+        // keystone.list('Post').model.find({_id: {$in: ids}}).exec(function(err1, result1) {
+        //   locals.data.users[index]['services'] = result1;
+        //   locals.data.users[index]['service_titles'] = '';
+        //   result1.forEach(function(each, index2) {
+        //     locals.data.users[index]['service_titles'] += each['title'] + "/";
+        //   })
+        //   if (locals.data.users[index]['service_titles'].length > 0)
+        //     locals.data.users[index]['service_titles'] = locals.data.users[index]['service_titles'].slice(0,-1);
+        // });
+        keystone.list('Book').model.find({ userId: user._id }).sort('bookingTime').limit(1).exec(function(err2, result2) {
+          if (result2.length > 0)
+          {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            var stime = result2[0]['bookingTime'];
+            var date = new Date(stime);
+            locals.data.users[index]['schedule'] = {
+              'date': date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear(), 
+              'time': date.getHours() + ":" + date.getMinutes()
+            };
+            console.log(locals.data.users[index]['schedule']);
+          }
           next(err);
-        });
+        })
       }, function (err) {
         next(err);
       });

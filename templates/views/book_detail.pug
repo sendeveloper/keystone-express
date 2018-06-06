@@ -24,10 +24,11 @@ block content
     .center-500.book-detail
       if data.user
         h1 Booking
-        form(action='/book' method='POST' id="book_form")
+        form(action='/api/book' method='POST' id="book_form")
           div.form-group
             h3="Employee Info"
             input(type='hidden' id='user_id' value=data.user._id name='user_id')
+            input(type='hidden' id='user_name' value=data.user.name.first + ' ' + data.user.name.last name='user_name')
           div.form-group
             div.col-sm-12.employee-photo
               if (data.photo)
@@ -42,7 +43,7 @@ block content
             div.col-sm-8
               select#empservice.form-control(multiple='multiple' name='empservice')
                 each service_item in data.service
-                  option(value=service_item.title)=service_item.title
+                  option(value=service_item._id)=service_item.title
           div.form-group
             label.control-label.col-sm-4(for='datetime') Time:
             div.col-sm-8
@@ -69,8 +70,8 @@ block content
             label.control-label.col-sm-4(for='reminder') Reminder:
             div.col-sm-8
               select.form-control(id='reminder' name='reminder')
-                option(value='Yes') Yes
-                option(value='No') No
+                each reminder_item in data.reminder
+                  option(value=reminder_item._id)=reminder_item.name
           div.form-group
             div.col-sm-offset-4.col-sm-8
               div.checkbox
@@ -80,5 +81,7 @@ block content
           div.form-group
             div.col-sm-offset-4.col-sm-8
               button.btn.btn-default(type='submit') Submit
+      else if data.error
+        h1=data.error
       else
         h1 Empty data

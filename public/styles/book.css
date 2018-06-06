@@ -21,7 +21,7 @@
 	border:1px solid rgba(0,0,0,0.12);
 }
 .y-master-card_item_disabled {
-	margin: 2% 2%;
+	margin: 4%;
 }
 .y-master-card_row {
 	width: 100%;
@@ -45,8 +45,8 @@
 .y-master-info-avatar img {
 	border: 3px solid #eee;
 	border-radius: 50%;
-	width: 135px;
-	height: 160px;
+	width: 100px;
+	height: 100px;
 	cursor: pointer;
 }
 .y-master-card_cell_middle {
@@ -72,7 +72,7 @@
 }
 .y-master-card_rating {
 	font-size: 14px;
-  width: 135px;
+  width: 100px;
   text-align: center;
 }
 .star-container .star-gold {

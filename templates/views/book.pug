@@ -46,8 +46,9 @@ block content
 							.y-master-card_cell.y-master-card_cell_relative
 								.y-reviews-button
 									a.ng-binding 76 reviews
-					.y-maser-card_footer
-						.y-master-card_session
-							h4 upcoming appointment 3 June
-						.master-time-slot-wrapper
-							a.warn-color-dark.master-time-slot 11:00
+					if (user.schedule)
+						.y-maser-card_footer
+							.y-master-card_session
+								h4="upcoming appointment " + user.schedule.date
+							.master-time-slot-wrapper
+								a.warn-color-dark.master-time-slot=user.schedule.time
