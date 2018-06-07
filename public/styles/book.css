@@ -128,4 +128,35 @@
   width: 100vw;
   overflow: hidden;
 }
-
+.price_img_wriper{
+  width: 100%;
+}
+.price_img_wriper img{
+  height: 100%;
+}
+.container-fluid{
+  margin-bottom: 0px !important;
+}
+.demo{
+  margin-bottom: -60px;
+}
+.demo .thumb{
+  top: 0px;
+}
+.lSSlideOuter .lSPager.lSGallery{
+  margin-top: -27px !important;
+}
+#lightSlider{
+  max-height: 300px;
+}
+@media only screen and (max-width: 768px) {
+  /*.container-fluid{
+    margin-right: -30px !important;
+  }
+  .lSAction > .lSNext{
+    right: 40px;
+  }
+  .navbar-fixed-top{
+    width: 100vw;
+  }*/
+}
