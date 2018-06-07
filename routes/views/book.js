@@ -38,7 +38,7 @@ module.exports = function (req, res) {
           if (locals.data.users[index]['service_titles'].length > 0)
             locals.data.users[index]['service_titles'] = locals.data.users[index]['service_titles'].slice(0,-1);
         });
-        keystone.list('Book').model.find({ userId: user._id }).sort('bookingTime').limit(1).exec(function(err2, result2) {
+        keystone.list('Book').model.find({ userId: user._id, bookingTime: {"$gte" : new Date()} }).sort('bookingTime').limit(1).exec(function(err2, result2) {
           if (result2.length > 0)
           {
             const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -46,6 +46,7 @@ module.exports = function (req, res) {
             ];
             var stime = result2[0]['bookingTime'];
             var date = new Date(stime);
+            console.log(stime);
             locals.data.users[index]['schedule'] = {
               'date': date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear(), 
               'time': date.getHours() + ":" + date.getMinutes()
