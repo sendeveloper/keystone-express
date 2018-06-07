@@ -40,7 +40,7 @@ module.exports = function (req, res) {
         newBook.save(function(err) {
           // post has been saved
           if (err)
-            res.json({"Error": 'Error to save the data'});
+            res.json({"Error": 'Email is already existed'});
           else
             res.json({});
         });
